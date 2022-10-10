@@ -1,30 +1,21 @@
 # NEXTJS Repo
 
-## Prerequisites
-- Files
-```
-.gitignore
-.nvmrc
-package-lock.json
-package.json
-```
+# Format Pre-commit Hook
 
-## Getting Started
-- T.B.D.
+- 
 
-## Code Quality
+# Lint Pre-commit Hook
 
-### Pre-commit Hook
-- Format Pre-commit Hook
-- Lint Pre-commit Hook
+# Security Audit
 
-### Audit
-- Security Audit
-- Performance Audit
-- Scheduled Build
+# Performance Audit
 
-### Test
-- Unit Tests
-- Integration Tests
-- E2E Tests
-- Smoke Tests
+# Static Analysis
+
+# Unit Tests
+
+# Integration Tests
+
+# E2E Tests
+
+# Smoke Tests
