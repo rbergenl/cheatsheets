@@ -1,0 +1,15 @@
+# Place this file at location './scripts/pipeline/
+parameters:
+- name: ENVIRONMENT 
+  type: string
+
+variables:
+
+  ${{ if eq(parameters.ENVIRONMENT, 'dev') }}:
+    environment_name: dev
+
+  ${{ elseif eq(parameters.ENVIRONMENT, 'stg') }}:
+    environment_name: stg
+
+  ${{ elseif eq(parameters.ENVIRONMENT, 'prd') }}: 
+    environment_name: prd

@@ -2,9 +2,9 @@
 
 ## Parameters
 
-- Active[Env, App]
+- SetActive[Env, App]
 
-## Audit
+## Analyse
 
 T.b.d.
 
@@ -25,20 +25,20 @@ T.b.d.
 
 - [ ] Parameter: Active Env
 - [ ] Parameter: Active App (monorepo)
-- [ ] Scan: Security Audit
-- [ ] Scan: Security Audit Report
-- [ ] Scan: Performance Audit
-- [ ] Scan: Performance Audit Report
-- [ ] Scan: Static Analysis
-- [ ] Scan: Static Analysis Report
+- [ ] Analyse: Security Audit
+- [ ] Analyse: Security Audit Report
+- [ ] Analyse: Performance Audit
+- [ ] Analyse: Performance Audit Report
+- [ ] Analyse: Static Scan
+- [ ] Analyse: Static Scan Report
 - [ ] Build
-- [ ] Test: Unit
-- [ ] Test: Unit Report
-- [ ] Test: Unit Coverage Report
-- [ ] Test: Integration
-- [ ] Test: Integration Report
-- [ ] Test: E2E
-- [ ] Test: E2E Report
+- [ ] Test: Unit Test
+- [ ] Test: Unit Test Report
+- [ ] Test: Unit Test Coverage Report
+- [ ] Test: Integration Test
+- [ ] Test: Integration Test Report
+- [ ] Test: E2E Test
+- [ ] Test: E2E Test Report
 - [ ] Deploy: Tst
 - [ ] Deploy: Acc
 - [ ] Deploy: Prd

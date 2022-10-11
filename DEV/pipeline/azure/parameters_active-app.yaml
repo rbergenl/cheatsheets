@@ -1,0 +1,15 @@
+parameters:
+  - name: setActiveApp
+    type: string
+    default: none
+    values:
+      - none
+      - one
+      - two
+
+variables:
+  - name: activeApp
+    ${{ if ne(parameters.setActiveApp, 'none') }}:
+      value: ${{ parameters.setActiveApp }}
+    ${{ else }}:
+      value: none

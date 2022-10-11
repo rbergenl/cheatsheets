@@ -1,0 +1,74 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # - group: npmTokens
+  - name: NODE_VERSION
+    value: '16.13.0' # should correspond .nvmrc file
+  - name: npm_config_cache
+    value: $(Pipeline.Workspace)/.npm
+  - name: isScheduled
+    value: $[eq(variables['Build.Reason'], 'Schedule')]
+  - name: isMainBranch
+    value: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/main') }}
+  - name: isDevelopBranch
+    value: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/develop') }}
+  - name: isFeatureBranch
+    value: ${{ notIn(variables['Build.SourceBranch'], 'refs/heads/develop', 'refs/heads/main') }}
+  - name: activeEnvironment
+    ${{ if eq(variables.isMainBranch, True) }}:
+      value: prd
+    ${{ elseif eq(variables.isDevelopBranch, True) }}:
+      value: stg
+    ${{ else }}:
+      value: dev
+  - template: scripts/pipeline/variables.yml
+    parameters:
+      ENVIRONMENT: ${{ variables.activeEnvironment }}
+
+- stage: analyse
+  displayName: Analyse ${{ variables.environment_name }}
+  condition: eq(variables.isScheduled, 'true')
+  jobs:
+    - job: analyse
+      displayName: 'Analyse'
+      steps:
+        - template: scripts/pipeline/npm-install.yml
+
+- stage: build
+  displayName: Build ${{ variables.environment_name }}
+  condition: eq(variables.isScheduled, 'false')
+  jobs:
+    - job: build
+      displayName: 'Build'
+      steps:
+        - template: scripts/pipeline/npm-install.yml
+
+- stage: test
+  displayName: Test ${{ variables.environment_name }}
+  condition: eq(variables.isScheduled, 'false')
+  dependsOn:
+    - build
+  jobs:
+    - job: test
+      displayName: 'Test'
+      steps:
+        - template: scripts/pipeline/npm-install.yml
+
+- stage: deploy
+  displayName: Deploy ${{ variables.environment_name }}
+  condition: eq(variables.isScheduled, 'false')
+  dependsOn:
+    - test
+  jobs:
+    - deployment: 'DeployTo_${{ variables.environment_name }}'
+      # environment: ${{ variables.deploy_environment }}
+      strategy:
+        runOnce:
+          # download artifact is automatically injected and downloaded to root
+          deploy:
+            steps:
+              - script: echo "deploy"
+          postRouteTraffic:
+            steps:
+              - script: echo "verify"

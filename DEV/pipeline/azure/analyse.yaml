@@ -1,0 +1,28 @@
+schedules:
+  - cron: '0 7 * * 1-5'
+    displayName: every workday morning
+    branches:
+      include:
+        - main
+    always: true
+
+stages:
+  - stage: analyse
+    displayName: Analyse
+    condition: eq(variables.isScheduled, 'true')
+    jobs:
+      - job: scheduled_analysis
+        steps:
+          - template: scripts/pipeline/npm-install.yml
+
+          - script: npm run security
+            displayName: 'Security Audit Report'
+          
+          - script: npm run performance
+            displayName: 'Performance Audit Report'
+          
+          - script: npm run static
+            displayName: 'Static Analysis Report'
+
+          - script: npm test -- --coverage
+            displayName: 'Unit Test Coverage Report'
