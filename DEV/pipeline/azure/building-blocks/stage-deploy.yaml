@@ -1,0 +1,13 @@
+
+jobs:
+    - deployment: 'DeployTo_${{ variables.environment_name }}'
+      environment: ${{ variables.deploy_environment }}
+      strategy:
+        runOnce:
+          # download artifact is automatically injected and downloaded to root
+          deploy:
+            steps:
+              - script: echo "deploy"
+          postRouteTraffic:
+            steps:
+              - script: echo "verify"
