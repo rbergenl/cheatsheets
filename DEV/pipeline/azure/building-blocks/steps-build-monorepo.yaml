@@ -1,0 +1,10 @@
+# start:add to azure-pipelines.yaml
+# parameters:
+# - name: setActiveApp
+#   type: string
+#   default: default
+#    values:
+#      - default
+#      - app-one
+#      - app-two
+# end

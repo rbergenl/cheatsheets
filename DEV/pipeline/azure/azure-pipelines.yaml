@@ -12,13 +12,15 @@ parameters:
       - prd
 
 variables:
-  # - group: npmTokens
+  # - group: npmTokens # environment variables used in .npmrc file
   - name: NODE_VERSION
     value: '16.13.0' # should correspond .nvmrc file
   - name: npm_config_cache
     value: $(Pipeline.Workspace)/.npm
   - name: isScheduled
     value: $[eq(variables['Build.Reason'], 'Schedule')]
+  - name: isPullRequest
+    value: $[eq(variables['Build.Reason'], 'PullRequest')]
   - name: isMainBranch
     value: ${{ eq(variables['Build.SourceBranch'], 'refs/heads/main') }}
   - name: isDevelopBranch
@@ -44,7 +46,7 @@ stages:
     condition: eq(variables.isScheduled, 'true')
     jobs:
       - job: analyse
-        displayName: 'Analyse'
+        displayName: Analyse
         steps:
           - template: scripts/pipeline/npm-install.yaml
           # - template: scripts/pipeline/stage-analyse.yaml
@@ -54,7 +56,7 @@ stages:
     condition: eq(variables.isScheduled, 'false')
     jobs:
       - job: build
-        displayName: 'Build'
+        displayName: Build
         steps:
           - template: scripts/pipeline/npm-install.yaml
           # - template: scripts/pipeline/stage-build.yaml
@@ -66,7 +68,7 @@ stages:
       - build
     jobs:
       - job: test
-        displayName: 'Test'
+        displayName: Test
         steps:
           - template: scripts/pipeline/npm-install.yaml
           # - template: scripts/pipeline/stage-test.yaml
