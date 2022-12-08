@@ -1,9 +1,20 @@
 # Dev
 
+## Quality Assurance
+
+- [Format Pre-commit Hook](../quality/hook_format.md)
+- [Lint Pre-commit Hook](../quality//hook_lint.md)
+- [Security Analysis](../quality/analyse_security.md)
+- [Performance Analysis](../quality/analyse_performance.md)
+- [Code Analysis](../quality/analyse_code.md)
+- [Unit Test](../quality/test_unit.md)
+- [Integration Test](../quality/test_integration.md)
+- [E2E Test](../quality/test_e2e.md)
+- [Smoke Test](../quality/test_smoke.md)
+
+
 ## CiCd Checklist
 
-- [ ] Parameter: Active Env
-- [ ] Parameter: Active App (monorepo)
 - [ ] Build (run > publish artifact)
 - [ ] Test: Unit Test (run > publish report > publish coverage report)
 - [ ] Test: Integration Test (run > publish report)
