@@ -27,10 +27,10 @@ npm start
 
 ## BizDevSecOps Links
 
-- [Biz](./docs/BIZ.md)
 - [Dev](./docs/DEV.md)
-- [Sec](./docs/SEC.md)
-- [Ops](./docs/OPS.md)
+- [Biz](./apps/app-one/BIZ.md)
+- [Ops](./apps/app-one/OPS.md)
+- [Sec](./apps/app-one/SEC.md)
 
 ## Work Instructions
 
