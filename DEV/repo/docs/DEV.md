@@ -2,6 +2,7 @@
 
 ## Format Pre-commit Hook
 
+- Setup instructions: `
 - Manual run: `npm run format`
 - Automatic run: before finilizing the command `git commit`
 
@@ -54,3 +55,10 @@
 - Manual run: `npm run smoke`
 - Automatic run: on each `git push` in the pipeline
 - Report: available in the pipeline run for each branch
+
+>>>>> ## Release
+
+- Deploy
+- Verify
+- Notify
+- Version

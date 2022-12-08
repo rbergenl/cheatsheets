@@ -4,13 +4,6 @@ Same description as in Configuration Management administration.
 
 (Application Screenshot or Overview Diagram)[./]
 
-## BizDevSecOps Links
-
-- [Biz](./docs/BIZ.md)
-- [Dev](./docs/DEV.md)
-- [Sec](./docs/SEC.md)
-- [Ops](./docs/OPS.md)
-
 ## Prerequisites
 
 - Node Version Manager (NVM)
@@ -31,6 +24,13 @@ npm start
 - Test: ()
 - Acc: ()
 - Prod: ()
+
+## BizDevSecOps Links
+
+- [Biz](./docs/BIZ.md)
+- [Dev](./docs/DEV.md)
+- [Sec](./docs/SEC.md)
+- [Ops](./docs/OPS.md)
 
 ## Work Instructions
 

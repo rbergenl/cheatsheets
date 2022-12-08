@@ -58,12 +58,24 @@
     - Choose Hosting.
     - Set the public path to `dist/apps/<name>`.
 - Run `firebase deploy --only hosting`.
+- Creat the following libraries with the command `nx g @nrwl/react:library <name>`: util-testing, util-analytics, util-auth, ui-components, data-access-graphql and feature-something.
+
+### Data-Access-GraphQL
 - Run `npm install @apollo/client graphql`. And continue with steps described here: https://www.apollographql.com/docs/react/get-started
     - Make sure to set correct CORS settings in Apollo GraphQL Studio. (add `http://localhost:4200` to the `origins` list)
+- Typescript Codegen. See docs: https://www.apollographql.com/docs/react/development-testing/static-typing
 
-### Typescript
-
-- See docs: https://www.apollographql.com/docs/react/development-testing/static-typing
+## Github Actions
+- See docs: https://firebase.google.com/docs/hosting/github-integration
+- Run `firebase init hosting:github`.
 
 ## User
 
+- Run `npm install firebase`.
+- Add:
+```typescript
+import {initializeApp} from "firebase/app"
+import {getAuth} from "firebase/auth";
+initializeApp(firebaseConfig);
+const auth = getAuth();
+```
