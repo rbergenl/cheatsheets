@@ -1,3 +1,0 @@
-# NextJS
-
-# Contentful CMS

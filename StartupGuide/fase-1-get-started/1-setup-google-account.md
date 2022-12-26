@@ -1,6 +1,9 @@
 
 # 1. Business
 
+## Domain
+
+
 ## Google Account
 
 - Choose a project name and create a new google account. Safe the password in your personal Password Manager.
